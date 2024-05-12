@@ -24,7 +24,12 @@ jobs:
     - name: Install dependencies
       run: |
         cd ruoyi-ui
-        npm install
+        npm install --registry=https://registry.npmmirror.com
         npm run build:stage
       env:
         CI: true
+    - name: Upload Artifact  # 添加上传文件步骤
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-files
+        path: ruoyi-ui/dist
