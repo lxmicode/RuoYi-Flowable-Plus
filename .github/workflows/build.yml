@@ -13,7 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: 克隆ruoyi-ui目录代码
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          ruoyi-ui
+
     - name: 安装nodejs-16环境
       uses: actions/setup-node@v3
       with:
