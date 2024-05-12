@@ -1,5 +1,6 @@
 name: 编译代码
 
+# 在master分支发生push事件时触发。
 on:
   push:
     branches: [ 0.8.X ]
@@ -22,9 +23,9 @@ jobs:
       run: |
         cd ruoyi-ui
         npm install && npm run build:prod
-
+        zip -r dist.zip ./dist
     - name: 上传dist文件
       uses: actions/upload-artifact@v3
       with:
         name: dist-files
-        path: ruoyi-ui/dist
+        path: ruoyi-ui/dist.zip
