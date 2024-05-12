@@ -25,5 +25,6 @@ jobs:
       run: |
         cd ruoyi-ui
         npm install
+        npm run build:stage
       env:
         CI: true
